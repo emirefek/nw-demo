@@ -1,0 +1,33 @@
+{
+  "ManifestComments": [
+    "Only add dependencies that you want shipped to the end user, for everything else, use devDependencies, including things that will be bundled by Vite.",
+    "NW.js requires a name and a main, everything else is optional.",
+    "The build section is used by nwjs-builder-phoenix, see its documentation for more info",
+    "To turn spell checking off, remove it from the chromium-args in this file"
+  ],
+  "name": "nw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http://localhost:4175",
+  "node-main": "",
+  "window": {
+    "width": 960,
+    "height": 600,
+    "min_width": 800,
+    "min_height": 500,
+    "icon": "../react/public/icon.png"
+  },
+  "chromium-args": "--enable-spell-checking --disable-features=ProcessPerSiteUpToMainFrameThreshold",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "wait-on -c waitOnConfig.json http-get://localhost:4175 && nw .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nw": "^0.79.1-sdk",
+    "wait-on": "^7.0.1"
+  },
+  "node-remote": "http://localhost:4175"
+}

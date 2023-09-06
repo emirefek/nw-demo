@@ -1,0 +1,22 @@
+{
+  "name": "nw-demo",
+  "workspaces": [
+    "react",
+    "nw"
+  ],
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w react\" \"npm run dev -w nw\"",
+    "build": "npm run clean && npm run build -w react && npm run build -w nw",
+    "clean": "rimraf ./nw/out && rimraf ./nw/dist-react",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "nw-builder": "^4.4.0",
+    "rimraf": "^5.0.1"
+  }
+}
